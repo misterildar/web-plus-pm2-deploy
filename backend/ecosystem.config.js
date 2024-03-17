@@ -13,7 +13,7 @@ module.exports = {
   deploy: {
     production: {
       user: DEPLOY_USER,
-      host: DEPLOY_HOST,
+      host: '158.160.73.120',
       ref: DEPLOY_REF,
       repo: DEPLOY_GITHUB_PATH,
       path: DEPLOY_PATH,

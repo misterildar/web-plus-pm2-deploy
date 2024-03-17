@@ -12,12 +12,12 @@ module.exports = {
 
   deploy: {
     production: {
-      user: DEPLOY_USER,
-      host: DEPLOY_HOST,
-      ref: DEPLOY_REF,
-      repo: DEPLOY_GITHUB_PATH,
-      path: DEPLOY_PATH,
-      'pre-deploy': `scp ./*.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
+      user: 'ildar',
+      host: '158.160.73.120',
+      ref: 'origin/master',
+      repo: 'https://github.com/misterildar/web-plus-pm2-deploy.git',
+      path: '/home/ildar/mesto-backend',
+      'pre-deploy': 'scp./*.env ildar@158.160.73.120:/home/ildar/mesto-backend',
       'post-deploy': 'cd backend && npm i && npm run build',
     },
   },

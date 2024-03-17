@@ -17,7 +17,7 @@ module.exports = {
       ref: 'origin/master',
       repo: "https://github.com/misterildar/web-plus-pm2-deploy.git",
       path: "/home/ildar/mesto-backend",
-      'pre-deploy': 'scp./*.env ildar@158.160.73.120:/home/ildar/mesto-backend',
+      'pre-deploy': 'scp./*.env ildar@158.160.73.120:/home/ildar/mesto-frontend',
       'post-deploy': 'cd mesto-frondend && npm i && npm run build',
     },
   },

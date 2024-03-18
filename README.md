@@ -4,6 +4,6 @@
 
 IP адрес 130.193.53.209
 
-Frontend http://mesto.ildar.nomoredomainswork.ru
+Frontend https://mesto.ildar.nomoredomainswork.ru
 
-Backend http://api.mesto.ildar.nomoredomainswork.ru
+Backend https://api.mesto.ildar.nomoredomainswork.ru

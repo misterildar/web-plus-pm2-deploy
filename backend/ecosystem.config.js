@@ -1,7 +1,11 @@
 require('dotenv').config({ path: '.env.deploy' });
 
+// const {
+//   DEPLOY_USER, DEPLOY_HOST, DEPLOY_PATH, DEPLOY_GITHUB_PATH, DEPLOY_REF = 'origin/master',
+// } = process.env;
+
 const {
-  DEPLOY_USER, DEPLOY_HOST, DEPLOY_PATH, DEPLOY_GITHUB_PATH, DEPLOY_REF = 'origin/master',
+  DEPLOY_USER = 'ildar', DEPLOY_HOST = '130.193.53.209', DEPLOY_PATH = '/home/ildar/web-plus-pm2-deploy/backend', DEPLOY_GITHUB_PATH = 'https://github.com/misterildar/web-plus-pm2-deploy.git', DEPLOY_REF = 'origin/master',
 } = process.env;
 
 module.exports = {
@@ -9,7 +13,6 @@ module.exports = {
     name: 'backend',
     script: './dist/app.js',
   }],
-
   deploy: {
     production: {
       user: DEPLOY_USER,
@@ -22,3 +25,4 @@ module.exports = {
     },
   },
 };
+

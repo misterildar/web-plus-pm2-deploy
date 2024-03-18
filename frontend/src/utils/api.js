@@ -139,6 +139,6 @@ class Api {
   }
 }
 
-const api = new Api('http://api.mesto.ildar.nomoredomainswork.ru');
+const api = new Api('https://api.mesto.ildar.nomoredomainswork.ru');
 
 export default api;

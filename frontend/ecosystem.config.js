@@ -6,19 +6,19 @@ const {
 
 module.exports = {
   apps: [{
-    name: 'mesto-frondend',
+    name: 'frondend',
     script: 'npm run start',
   }],
 
   deploy: {
     production: {
       user: "ildar",
-      host: "158.160.73.120",
+      host: "130.193.53.209",
       ref: 'origin/master',
       repo: "https://github.com/misterildar/web-plus-pm2-deploy.git",
-      path: "/home/ildar/mesto-backend",
-      'pre-deploy': 'scp./*.env ildar@158.160.73.120:/home/ildar/mesto-frontend',
-      'post-deploy': 'cd mesto-frondend && npm i && npm run build',
+      path: "/home/ildar/web-plus-pm2-deploy",
+      'pre-deploy': 'scp./*.env ildar@130.193.53.209:/home/ildar/web-plus-pm2-deploy/mesto-frontend',
+      'post-deploy': 'cd web-plus-pm2-deploy/mesto-frontend && npm i && npm run build',
     },
   },
 };
@@ -32,7 +32,7 @@ module.exports = {
 //           repo: DEPLOY_GITHUB_PATH,
 //             path: DEPLOY_PATH,
 //               'pre-deploy': `scp ./*.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
-//                 'post-deploy': 'cd mesto-frondend && npm i && npm run build',
+//                 'post-deploy': 'cd web-plus-pm2-deploy/frontend && npm i && npm run build',
 //   },
 // },
 

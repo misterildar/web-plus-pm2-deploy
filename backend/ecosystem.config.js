@@ -13,12 +13,12 @@ module.exports = {
   deploy: {
     production: {
       user: 'ildar',
-      host: '158.160.73.120',
+      host: '130.193.53.209',
       ref: 'origin/master',
       repo: 'https://github.com/misterildar/web-plus-pm2-deploy.git',
-      path: '/home/ildar/mesto-backend',
-      'pre-deploy': 'scp ../.env ildar@158.160.73.120:/home/ildar/backend',
-      'post-deploy': 'cd backend && npm i && npm run build',
+      path: '/home/ildar/web-plus-pm2-deploy/backend',
+      'pre-deploy': 'scp./*.env ildar@130.193.53.209:/home/ildar/web-plus-pm2-deploy/backend',
+      'post-deploy': 'cd web-plus-pm2-deploy/backend && npm i && npm run build',
     },
   },
 };

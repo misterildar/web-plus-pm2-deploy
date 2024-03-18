@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && scp -Cr ./build/* ildar@158.160.73.120:/home/ildar/mesto-frontend"
+    "deploy": "npm run build && scp -Cr ./build/* ildar@130.193.53.209:/home/ildar/web-plus-pm2-deploy/mesto-frontend"
   },
   "eslintConfig": {
     "extends": [

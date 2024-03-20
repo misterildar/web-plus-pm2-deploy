@@ -24,7 +24,7 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState(null);
   const [cards, setCards] = React.useState([]);
 
-  
+
   const [currentUser, setCurrentUser] = React.useState({});
 
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = React.useState(false);
@@ -35,33 +35,31 @@ function App() {
 
   const history = useHistory();
 
-
   React.useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    if (token) {
-      api
-        .checkToken(token)
-        .then((res) => {
-          console.log(res)
+    const fetchData = async () => {
+      const token = localStorage.getItem("jwt");
+      if (token) {
+        try {
+          const res = await api.checkToken(token);
+          console.log(res);
           api.setToken(token);
           setEmail(res.email);
           setIsLoggedIn(true);
-          return api.getAppInfo()
-        })
-        .then(([cardData, userData]) => {
-            setCurrentUser(userData);
-            setCards(cardData);
-            history.push("/");
-        })
-        .catch((err) => {
+          const [cardData, userData] = await api.getAppInfo();
+          setCurrentUser(userData);
+          setCards(cardData);
+          history.push("/");
+        } catch (err) {
           localStorage.removeItem("jwt");
           console.log(err);
-        });
-    }
+        }
+      }
+    };
+    fetchData();
   }, [history]);
 
 
-  
+
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(true);
   }
@@ -166,15 +164,15 @@ function App() {
   }
 
   function onSignOut() {
-    
+
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
-    
+
     history.push("/signin");
   }
 
   return (
-    
+
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page__content">
         <Header email={email} onSignOut={onSignOut} />

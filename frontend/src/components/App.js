@@ -38,7 +38,7 @@ function App() {
   React.useEffect(() => {
     const fetchData = async () => {
       const token = localStorage.getItem("jwt");
-      if (token) {
+      if (token || isLoggedIn) {
         try {
           const res = await api.checkToken(token);
           console.log(res);
@@ -56,7 +56,7 @@ function App() {
       }
     };
     fetchData();
-  }, [history]);
+  }, [history, isLoggedIn]);
 
 
 
